@@ -1,6 +1,14 @@
 import json
-import pandas as pd
 
+class UltraSonicResource :
+    def __init__(self) :
+        self.ultrasonicrange = 4
+        self.count = 0;
+
+    def on_get(self, req, resp) :
+        obj = { "count" : self.getUltraSonicValue() }
+        resp.body = json.dumps(obj, ensure_ascii=False)
+    
 class TablesResource :
     def __init__ (self, df) :
         self.__tables = self.__initTables(df)

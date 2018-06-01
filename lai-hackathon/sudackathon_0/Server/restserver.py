@@ -13,8 +13,8 @@ import pandas as pd
 def initApp() :
     app = falcon.API()
     df = pd.DataFrame([["1", "4"]], columns = ["table_id", "seat_number"])
-    app.add_route('/api', rsc.TablesResource(df))
-    
+    app.add_route('/api/table', rsc.TablesResource(df))
+    app.add_route('/api/us', rsc.UltraSonicResource())
     return app
 
 def main() :
